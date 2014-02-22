@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env BASH
+
+if [[ -d $TM_PROJECT_DIRECTORY ]]; then
+    cd "$TM_PROJECT_DIRECTORY";
+fi
+
+if type composer.phar &amp;&gt;/dev/null ; then
+    cpsr=`which composer.phar`
+elif type composer &amp;&gt;/dev/null; then
+    cpsr=`which composer`
+elif [[ -f 'composer' ]]; then
+    cpsr="php composer"
+elif [[ -f 'composer.phar' ]]; then
+    cpsr="php composer.phar"
+fi
+
+# if ! type composer.phar &amp;&gt;/dev/null &amp;&amp; ! type composer &amp;&gt;/dev/null &amp;&amp; [[ ! -f 'composer' ]] &amp;&amp; [[ ! -f 'composer.phar' ]] ; then
+if [[ ! $cpsr ]]; then
+    echo "Composer not found"
+else
+    $cpsr list
+fi</string>
+	<key>input</key>
+	<string>selection</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>name</key>
+	<string>list</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>text</string>
+	<key>outputLocation</key>
+	<string>toolTip</string>
+	<key>uuid</key>
+	<string>926A2D93-C629-42B6-AE0F-A610560D07B7</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>command</key>
+	<string>#!/usr/bin/env BASH
+
+if [[ -d $TM_PROJECT_DIRECTORY ]]; then
+    cd "$TM_PROJECT_DIRECTORY";
+fi
+
+if type composer.phar &amp;&gt;/dev/null ; then
+    cpsr=`which composer.phar`
+elif type composer &amp;&gt;/dev/null; then
+    cpsr=`which composer`
+elif [[ -f 'composer' ]]; then
+    cpsr="php composer"
+elif [[ -f 'composer.phar' ]]; then
+    cpsr="php composer.phar"
+fi
+
+if [[ ! $cpsr ]]; then
+    echo "Composer not found"
+else
+    if [[ -f 'composer.lock' ]]; then
+        $cpsr update
+    else
+        echo "composer.lock not found. You should run install instead"
+    fi
+fi</string>
+	<key>name</key>
+	<string>update</string>
+	<key>outputLocation</key>
+	<string>toolTip</string>
+	<key>uuid</key>
+	<string>47CB4531-3DD1-4490-8E53-D8FA5E40E60E</string>
+</dict>
+</plist>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>command</key>
+	<string>#!/usr/bin/env BASH
+
+if [[ -d $TM_PROJECT_DIRECTORY ]]; then
+    cd "$TM_PROJECT_DIRECTORY";
+fi
+
+if type composer.phar &amp;&gt;/dev/null ; then
+    cpsr=`which composer.phar`
+elif type composer &amp;&gt;/dev/null; then
+    cpsr=`which composer`
+elif [[ -f 'composer' ]]; then
+    cpsr="php composer"
+elif [[ -f 'composer.phar' ]]; then
+    cpsr="php composer.phar"
+fi
+
+if [[ ! $cpsr ]]; then
+    echo "Composer not found"
+else
+    if [[ -f 'composer.json' ]]; then
+        $cpsr run-script
+    else
+        echo "composer.json not found"
+    fi
+fi</string>
+	<key>name</key>
+	<string>run-script</string>
+	<key>outputLocation</key>
+	<string>toolTip</string>
+	<key>uuid</key>
+	<string>B85A895E-647F-4D9C-9881-F32E381EB6A2</string>
+</dict>
+</plist>

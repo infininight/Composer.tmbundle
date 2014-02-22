@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>contactEmailRot13</key>
+	<string>ynheragt@tznvy.pbz</string>
+	<key>contactName</key>
+	<string>Laurent Goussard</string>
+	<key>description</key>
+	<string>Composer Bundle
+https://getcomposer.org/</string>
+	<key>mainMenu</key>
+	<dict>
+		<key>items</key>
+		<array>
+			<string>0AD762A2-9389-4E42-9D88-631CD5537A1A</string>
+			<string>47CB4531-3DD1-4490-8E53-D8FA5E40E60E</string>
+			<string>ED78F1CB-7B79-4611-B8A2-50F02F870EC9</string>
+			<string>B85A895E-647F-4D9C-9881-F32E381EB6A2</string>
+			<string>4F4ECBBF-871E-45C0-AC8F-52FB43A6AB9F</string>
+			<string>------------------------------------</string>
+			<string>AE8D87AC-E8F2-43EB-9FCD-81B3D68188C9</string>
+			<string>3291C8D6-8739-4878-8975-C96F00ED1F87</string>
+			<string>926A2D93-C629-42B6-AE0F-A610560D07B7</string>
+			<string>------------------------------------</string>
+			<string>42036AC7-4C85-4329-9EEC-E6A90C39A71B</string>
+		</array>
+	</dict>
+	<key>name</key>
+	<string>Composer</string>
+	<key>source</key>
+	<dict>
+		<key>method</key>
+		<string>git</string>
+		<key>url</key>
+		<string>git://github.com/loranger/composer.tmbundle</string>
+	</dict>
+	<key>uuid</key>
+	<string>B6DAEF56-7848-432E-B7C2-9BEEBFAA30A7</string>
+</dict>
+</plist>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env bash
+[[ -f "${TM_SUPPORT_PATH}/lib/bash_init.sh" ]] &amp;&amp; . "${TM_SUPPORT_PATH}/lib/bash_init.sh"
+
+if [[ -d $TM_PROJECT_DIRECTORY ]]; then
+    cd "$TM_PROJECT_DIRECTORY";
+fi
+
+if [[ ! -f 'composer.json' ]]; then
+cat &lt;&lt; EOF &gt; composer.json
+{
+    "name": "root/${PWD##*/}",
+    "description": "Yet another composer-based project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "$TM_FULLNAME"
+        }
+    ],
+    "require": {
+        "php": "&gt;=$(php -r 'echo phpversion();')"
+    }
+}
+EOF
+fi
+
+open "txmt://open?url=file://$TM_PROJECT_DIRECTORY/composer.json"</string>
+	<key>input</key>
+	<string>selection</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>name</key>
+	<string>composer.json</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>text</string>
+	<key>outputLocation</key>
+	<string>discard</string>
+	<key>uuid</key>
+	<string>42036AC7-4C85-4329-9EEC-E6A90C39A71B</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>
